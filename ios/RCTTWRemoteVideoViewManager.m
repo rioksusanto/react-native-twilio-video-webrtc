@@ -9,6 +9,7 @@
 #import "RCTTWRemoteVideoViewManager.h"
 
 #import <React/RCTConvert.h>
+#import <React/RCTView.h>
 #import "RCTTWVideoModule.h"
 
 @interface RCTTWVideoTrackIdentifier : NSObject
@@ -51,8 +52,8 @@ RCT_CUSTOM_VIEW_PROPERTY(scalesType, NSInteger, TVIVideoView) {
   view.subviews[0].contentMode = [RCTConvert NSInteger:json];
 }
 
-- (UIView *)view {
-  UIView *container = [[UIView alloc] init];
+- (RCTView *)view {
+  RCTView *container = [[RCTView alloc] init];
   TVIVideoView *inner = [[TVIVideoView alloc] init];
   inner.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
   [container addSubview:inner];
